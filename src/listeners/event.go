@@ -12,3 +12,12 @@ const (
 	RoomNameChanged          events.EventType = "RoomNameChanged"
 	RoomInitializingFinished events.EventType = "RoomInitializingFinished"
 )
+
+var AllEvents = []events.EventType{
+	ListenStart,
+	ListenStop,
+	LiveStart,
+	LiveEnd,
+	RoomNameChanged,
+	RoomInitializingFinished,
+}

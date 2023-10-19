@@ -72,6 +72,14 @@ func (m *manager) registryListener(ctx context.Context, ed events.Dispatcher) {
 	})
 	ed.AddEventListener(listeners.LiveEnd, removeEvtListener)
 	ed.AddEventListener(listeners.ListenStop, removeEvtListener)
+
+	generalEventListener := events.NewEventListener(func(event *events.Event) {
+		// TODO Live start notifier or event notifier
+	})
+
+	for _, event := range listeners.AllEvents {
+		ed.AddEventListener(event, generalEventListener)
+	}
 }
 
 func (m *manager) Start(ctx context.Context) error {
